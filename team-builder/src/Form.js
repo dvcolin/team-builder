@@ -52,9 +52,14 @@ const Form = props => {
 
     const [user, setUser] = useState({ name: '', email: '', role: '' });
 
+    const handleChange = event => {
+        setUser({...user, [event.target.name]: event.target.value});
+        console.log(user);
+    }
+
     const handleSubmit = event => {
         event.preventDefault();
-        console.log('user');
+        console.log('Submitted', user);
     }
     return(
         <FormContainer>
@@ -63,17 +68,17 @@ const Form = props => {
 
                 <div className='form-field'>
                     <FormLabel for='name'>Name
-                        <input type ='text'></input>
+                        <input onChange={handleChange} type ='text' name='name' value={user.name}></input>
                     </FormLabel>
                 </div>
                 <div className='form-field'>
                     <FormLabel for='email'>Email
-                        <input type ='text'></input>
+                        <input onChange={handleChange} type ='email' name='email' value={user.email}></input>
                     </FormLabel>
                 </div>
                 <div className='form-field'>
                     <FormLabel for='role'>Role
-                        <input type ='text'></input>
+                        <input onChange={handleChange} type ='text' name='role' value={user.role}></input>
                     </FormLabel>
                 </div>
                 <SubmitButton>Submit</SubmitButton>
