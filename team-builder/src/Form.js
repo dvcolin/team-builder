@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import './App.css';
 import { theme } from './Theme';
-import TeamMembersData from './TeamMembersData';
 
 const FormContainer = styled.div`
     width: 60%;
@@ -47,32 +46,27 @@ const SubmitButton = styled.button`
     text-transform: uppercase;
     margin: 1.5rem auto;
     font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
 `;
 
 
 
 const Form = props => {
-    const [team, setTeam] = useState(TeamMembersData);
-    const [user, setUser] = useState({ name: '', email: '', role: '' });
+    const [user, setUser] = useState({ name: '', email: '', role: '', id: parseInt(Math.random() * 1000000000)});
 
     const handleChange = event => {
         setUser({...user, [event.target.name]: event.target.value});
         console.log(user);
     }
 
-    const handleSubmit = event => {
-        event.preventDefault();
-        setTeam(...TeamMembersData, user);
-
-    }
-
-    useEffect(() => {
-
-    },[team])
-
     return(
         <FormContainer>
-            <FormContent onSubmit={handleSubmit}>
+            <FormContent onSubmit={event => {
+                event.preventDefault();
+                props.submit(user);
+                setUser({ name: '', email: '', role: '', id: parseInt(Math.random() * 1000000000)});
+            }}>
                 <FormTitle>Sign Up</FormTitle>
 
                 <div className='form-field'>

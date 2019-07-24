@@ -8,12 +8,16 @@ import TeamMemberCard from './TeamMemberCard';
 
 function App() {
 
-  const [members, setMembers] = useState(TeamMembersData);
+  const [team, setTeam] = useState(TeamMembersData);
+
+  const addMember = member => {
+    setTeam([...team, member]);
+  }
 
   return (
     <div className="App">
 
-      <Form />
+      <Form submit={addMember} />
 
       <TeamMembers>
         {TeamMembersData.map(person => 

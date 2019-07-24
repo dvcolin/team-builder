@@ -1,19 +1,19 @@
 const TeamMembersData = [
     {
         name: 'Colin de Vries',
-        email: 'dvcolin@hotmail.com',
+        email: 'dvcolin@gmail.com',
         role: 'Front End Developer',
         id: 1,
     },
     {
-        name: 'Thomas Jones',
-        email: 'tj@hotmail.com',
+        name: 'Thomas Miller',
+        email: 'tmiller@gmail.com',
         role: 'Back End Developer',
         id: 2,
     },
     {
-        name: 'JJ Jones',
-        email: 'ssd@hotmail.com',
+        name: 'Andrew Smith',
+        email: 'asmith@gmail.com',
         role: 'React Wizard',
         id: 3,
     },
