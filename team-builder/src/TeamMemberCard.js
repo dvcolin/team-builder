@@ -28,6 +28,16 @@ const TeamMemberItem = styled.div`
     margin: 1rem 0;
 `;
 
+const EditButton = styled.button`
+    background: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1.5rem;
+    text-transform: uppercase;
+    margin: 1.5rem auto;
+    font-size: 1.2rem;
+`;
+
 const TeamMemberCard = props => {
     return(
         <TeamMember>
@@ -35,7 +45,9 @@ const TeamMemberCard = props => {
             <TeamMemberInfo>
                 <TeamMemberItem>{props.email}</TeamMemberItem>
                 <TeamMemberItem>{props.role}</TeamMemberItem>
+                <EditButton>Edit</EditButton>
             </TeamMemberInfo>
+            
         </TeamMember>
     )
 }

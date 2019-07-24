@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import './App.css';
 import { theme } from './Theme';
+import TeamMembersData from './TeamMembersData';
 
 const FormContainer = styled.div`
     width: 60%;
@@ -48,8 +49,10 @@ const SubmitButton = styled.button`
     font-size: 1.2rem;
 `;
 
-const Form = props => {
 
+
+const Form = props => {
+    const [team, setTeam] = useState(TeamMembersData);
     const [user, setUser] = useState({ name: '', email: '', role: '' });
 
     const handleChange = event => {
@@ -59,8 +62,14 @@ const Form = props => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log('Submitted', user);
+        setTeam(...TeamMembersData, user);
+
     }
+
+    useEffect(() => {
+
+    },[team])
+
     return(
         <FormContainer>
             <FormContent onSubmit={handleSubmit}>
@@ -81,7 +90,7 @@ const Form = props => {
                         <input onChange={handleChange} type ='text' name='role' value={user.role}></input>
                     </FormLabel>
                 </div>
-                <SubmitButton>Submit</SubmitButton>
+                <SubmitButton type='submit'>Submit</SubmitButton>
             </FormContent>
         </FormContainer>
     );

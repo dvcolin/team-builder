@@ -7,13 +7,17 @@ import TeamMembersData from './TeamMembersData';
 import TeamMemberCard from './TeamMemberCard';
 
 function App() {
-  const [team, setTeam] = useState({});
+
+  const [members, setMembers] = useState(TeamMembersData);
+
   return (
     <div className="App">
+
       <Form />
+
       <TeamMembers>
         {TeamMembersData.map(person => 
-            <TeamMemberCard name={person.name} email={person.email} role={person.role} />
+            <TeamMemberCard key={person.id} name={person.name} email={person.email} role={person.role} />
         )}
       </TeamMembers>
 
