@@ -13,8 +13,8 @@ const TeamMembersHeader = styled.h1`
 const TeamMembers = props => {
     return (
         <div className='team-members'>
-            {props.children}
             <TeamMembersHeader>Team Members</TeamMembersHeader>
+            {props.children}
         </div>
     );
 }

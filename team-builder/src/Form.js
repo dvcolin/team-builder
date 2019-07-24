@@ -6,7 +6,7 @@ import { theme } from './Theme';
 const FormContainer = styled.div`
     width: 60%;
     background: ${theme.colors.lightBlue};
-    margin: 0 auto;
+    margin: 1.5rem auto;
     border-radius: 5px;
 `;
 

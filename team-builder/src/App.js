@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TeamMembers from './TeamMembers';
 import Form from './Form';
-
+import TeamMembersData from './TeamMembersData';
+import TeamMemberCard from './TeamMemberCard';
 
 function App() {
+  const [team, setTeam] = useState({});
   return (
     <div className="App">
-      <TeamMembers />
-
       <Form />
+      <TeamMembers>
+        {TeamMembersData.map(person => 
+            <TeamMemberCard name={person.name} email={person.email} role={person.role} />
+        )}
+      </TeamMembers>
+
+      
     </div>
   );
 }
