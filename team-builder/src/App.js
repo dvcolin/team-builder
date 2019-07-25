@@ -20,7 +20,7 @@ function App() {
       <Form submit={addMember} />
 
       <TeamMembers>
-        {TeamMembersData.map(person => 
+        {team.map(person => 
             <TeamMemberCard key={person.id} name={person.name} email={person.email} role={person.role} />
         )}
       </TeamMembers>
