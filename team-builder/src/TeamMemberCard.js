@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import './App.css';
 import { theme } from './Theme';
+import TeamMembersData from './TeamMembersData';
 
 const TeamMember = styled.div`
     width: 60%;
@@ -39,6 +40,16 @@ const EditButton = styled.button`
 `;
 
 const TeamMemberCard = props => {
+
+    const [user, setUser] = useState({props});
+
+    const [editing, setEditing] = useState(false);
+
+    const handleChange = event => {
+        setUser({...user, [event.target.name]: event.target.value});
+        console.log(user);
+    }
+
     return(
         <TeamMember>
             <TeamMemberName>{props.name}</TeamMemberName>
